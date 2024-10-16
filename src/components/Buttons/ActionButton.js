@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 export const ActionButton = ({ text = 'Click', onClick = () => {}, title }) => {
   const [blockLevel, setBlockLevel] = useState(false);
   useEffect(() => {
-    if (title === 'level 2' || title === 'level 3') {
+   /*  if (title === 'level 2' || title === 'level 3') {
       setBlockLevel(true);
-    }
+    } */
   }, []);
 
   return (
