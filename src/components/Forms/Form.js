@@ -89,7 +89,7 @@ const CustomSelect = React.forwardRef(({ label, options, name, value, onChange, 
   );
 });
 
-const renderInputField = (type, id, label, register, errors, defaultValue, options = [], setSelectedClan) => {
+const renderInputField = (type, id, label, register, errors, defaultValue, options = [], setSelectedClan, user) => {
   switch (type) {
     case 'text':
     case 'number':
@@ -104,6 +104,7 @@ const renderInputField = (type, id, label, register, errors, defaultValue, optio
             id={id}
             className="mt-1 block w-full px-3 py-2 border border-sky-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder={label}
+            disabled={user?.rol?.name === 'student'}
             defaultValue={defaultValue}
             {...register(id, { required: `${label} es requerido` })}
           />
@@ -173,7 +174,7 @@ export const Form = ({
       {apiError && <p className="text-red-500">{apiError.message}</p>}
       <form onSubmit={handleSubmit(onSubmit)}>
         {formFields.map(({ type, id, label, options, defaultValue }) =>
-          renderInputField(type, id, label, register, errors, defaultValue, options, setSelectedClan),
+          renderInputField(type, id, label, register, errors, defaultValue, options, setSelectedClan, user),
         )}
         <div className="flex justify-end">
           {user?.rol?.name === "teacher" ? (

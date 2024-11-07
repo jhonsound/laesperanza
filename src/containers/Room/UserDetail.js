@@ -16,6 +16,7 @@ import { validationExercises } from 'utils/verificationExercises';
 import { generateFormFields } from 'utils/funtions';
 
 export const UserDetail = ({ user, close, errorUser, clans, searchUser }) => {
+  console.log("🚀 ~ UserDetail ~ user:", user)
   const formFields = generateFormFields(user, clans);
   const [selectedClan, setSelectedClan] = useState('');
   const { user: userLogin } = useContext(AuthContext);
@@ -164,6 +165,7 @@ export const UserDetail = ({ user, close, errorUser, clans, searchUser }) => {
                                   value={exerciseScores[exercise.id]}
                                   onChange={e => handleScoreChange(exercise.id, e.target.value)}
                                   type="text"
+                                  disabled={userLogin?.rol?.name === 'student'}
                                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                   placeholder="4.0"
                                 />
