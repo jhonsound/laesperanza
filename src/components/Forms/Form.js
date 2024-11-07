@@ -140,6 +140,7 @@ const renderInputField = (type, id, label, register, errors, defaultValue, optio
           <select
             id={id}
             multiple
+            disabled={user?.rol?.name === 'student'}
             className="mt-1 block w-full px-3 py-2 border border-sky-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             defaultValue={defaultValue}
             {...register(id, { required: `${label} es requerido` })}
