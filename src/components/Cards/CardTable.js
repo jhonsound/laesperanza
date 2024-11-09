@@ -54,7 +54,7 @@ export default function CardTable({
             <thead>
               <tr>
                 {filteredHeaders?.map((header, index) => {
-                  if (header !== 'password') {
+                  if (header !== 'password' && header !== 'id' && header !== 'userName') {
                     return (
                       <th
                         key={index}
@@ -86,7 +86,7 @@ export default function CardTable({
               {data?.map((row, rowIndex) => (
                 <tr key={rowIndex}>
                   {filteredHeaders?.map((header, colIndex) => {
-                    if (header !== 'password') {
+                    if (header !== 'password' && header !== 'id' && header !== 'userName') {
                       return (
                         <td
                           key={colIndex}

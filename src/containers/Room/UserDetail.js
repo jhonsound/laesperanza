@@ -16,7 +16,6 @@ import { validationExercises } from 'utils/verificationExercises';
 import { generateFormFields } from 'utils/funtions';
 
 export const UserDetail = ({ user, close, errorUser, clans, searchUser }) => {
-  console.log("🚀 ~ UserDetail ~ user:", user)
   const formFields = generateFormFields(user, clans);
   const [selectedClan, setSelectedClan] = useState('');
   const { user: userLogin } = useContext(AuthContext);
